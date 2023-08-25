@@ -35,8 +35,8 @@ class TestAccountEvent(unittest.TestCase):
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AccountEvent`
-        """
-        model = fdtapi.models.account_event.AccountEvent()  # noqa: E501
+        
+        # model = fdtapi.models.account_event.AccountEvent()  # noqa: E501
         if include_optional :
             return AccountEvent(
                 event_id = 'e8b0e3fee4a26bd2317ac1f9952fcdc87dc08fdb617656b5202416323337372e', 
@@ -62,8 +62,7 @@ class TestAccountEvent(unittest.TestCase):
                                 is_scam = True, 
                                 icon = 'https://ton.org/logo.png', ), 
                             amount = 123456789, 
-                            comment = 'Hi! This is your salary. 
-From accounting with love.', 
+                            comment = 'Hi! This is your salary. From accounting with love.', 
                             encrypted_comment = fdtapi.models.encrypted_comment.EncryptedComment(
                                 encryption_type = 'simple', 
                                 cipher_text = 'A6A0BD6608672B...CE3AF8DB', ), 
@@ -77,8 +76,7 @@ From accounting with love.',
                             senders_wallet = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                             recipients_wallet = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                             amount = '1000000000', 
-                            comment = 'Hi! This is your salary. 
-From accounting with love.', 
+                            comment = 'Hi! This is your salary. From accounting with love.', 
                             jetton = fdtapi.models.jetton_preview.JettonPreview(
                                 address = '0:0BB5A9F69043EEBDDA5AD2E946EB953242BD8F603FE795D90698CEEC6BFC60A0', 
                                 name = 'Wrapped TON', 
@@ -88,19 +86,30 @@ From accounting with love.',
                                 verification = 'whitelist', ), ), 
                         nft_item_transfer = fdtapi.models.nft_item_transfer_action.NftItemTransferAction(
                             nft = '', 
-                            comment = 'Hi! This is your salary. 
-From accounting with love.', 
+                            comment = 'Hi! This is your salary. From accounting with love.', 
                             payload = '0234de3e21d21b3ee21f3', ), 
                         subscribe = fdtapi.models.subscription_action.SubscriptionAction(
-                            subscriber = , 
+                            subscriber = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                             subscription = '0:da6b1b6663a0e4d18cc8574ccd9db5296e367dd9324706f3bbd9eb1cd2caf0bf', 
-                            beneficiary = , 
+                            beneficiary = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                             amount = 1000000000, 
                             initial = False, ), 
                         un_subscribe = fdtapi.models.un_subscription_action.UnSubscriptionAction(
-                            subscriber = , 
+                            subscriber = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                             subscription = '0:da6b1b6663a0e4d18cc8574ccd9db5296e367dd9324706f3bbd9eb1cd2caf0bf', 
-                            beneficiary = , ), 
+                            beneficiary = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         auction_bid = fdtapi.models.auction_bid_action.AuctionBidAction(
                             auction_type = 'DNS.ton', 
                             amount = fdtapi.models.price.Price(
@@ -109,8 +118,11 @@ From accounting with love.',
                             nft = fdtapi.models.nft_item.NftItem(
                                 address = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                                 index = 58, 
-                                owner = , 
-                                collection = fdtapi.models.nft_item_collection.NftItem_collection(
+                                owner = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                                collection = fdtapi.models.nft_item_collection.NftItemCollection(
                                     address = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                                     name = 'TON Diamonds', 
                                     description = 'Best collection in TON network', ), 
@@ -118,7 +130,10 @@ From accounting with love.',
                                 metadata = {}, 
                                 sale = fdtapi.models.sale.Sale(
                                     address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
-                                    market = , 
+                                    market = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                                     price = fdtapi.models.price.Price(
                                         value = '123000000000', 
                                         token_name = 'TON', ), ), 
@@ -131,11 +146,17 @@ From accounting with love.',
                                 approved_by = [
                                     'getgems'
                                     ], ), 
-                            bidder = , 
-                            auction = , ), 
+                            bidder = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            auction = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         nft_purchase = fdtapi.models.nft_purchase_action.NftPurchaseAction(
                             auction_type = 'DNS.tg', 
-                            amount = , 
+                            amount = fdtapi.models.Price(value='YourValueHere', token_name='YourTokenNameHere'), 
                             nft = fdtapi.models.nft_item.NftItem(
                                 address = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                                 index = 58, 
@@ -145,20 +166,38 @@ From accounting with love.',
                                 approved_by = [
                                     'getgems'
                                     ], ), 
-                            seller = , 
-                            buyer = , ), 
+                            seller = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            buyer = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         deposit_stake = fdtapi.models.deposit_stake_action.DepositStakeAction(
                             amount = 1660050553, 
-                            staker = , ), 
+                            staker = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         recover_stake = fdtapi.models.recover_stake_action.RecoverStakeAction(
                             amount = 1660050553, 
-                            staker = , ), 
+                            staker = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         jetton_swap = fdtapi.models.jetton_swap_action.JettonSwapAction(
                             dex = 'stonfi', 
                             amount_in = '1660050553', 
                             amount_out = '1660050553', 
-                            user_wallet = , 
-                            router = , 
+                            user_wallet = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            router = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                             jetton_wallet_in = '0:dea8f638b789172ce36d10a20318125e52c649aa84893cd77858224fe2b9b0ee', 
                             jetton_master_in = fdtapi.models.jetton_preview.JettonPreview(
                                 address = '0:0BB5A9F69043EEBDDA5AD2E946EB953242BD8F603FE795D90698CEEC6BFC60A0', 
@@ -168,19 +207,31 @@ From accounting with love.',
                                 image = 'https://cache.tonapi.io/images/jetton.jpg', 
                                 verification = 'whitelist', ), 
                             jetton_wallet_out = '0:dea8f638b789172ce36d10a20318125e52c649aa84893cd77858224fe2b9b0ee', 
-                            jetton_master_out = , ), 
+                            jetton_master_out = fdtapi.models.jetton_preview.JettonPreview(
+                                address = '0:0BB5A9F69043EEBDDA5AD2E946EB953242BD8F603FE795D90698CEEC6BFC60A0', 
+                                name = 'Wrapped TON', 
+                                symbol = 'WTON', 
+                                decimals = 9, 
+                                image = 'https://cache.tonapi.io/images/jetton.jpg', 
+                                verification = 'whitelist', ), ), 
                         smart_contract_exec = fdtapi.models.smart_contract_action.SmartContractAction(
-                            executor = , 
-                            contract = , 
+                            executor = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            contract = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                             ton_attached = 123456789, 
                             operation = 'NftTransfer or 0x35d95a12', 
-                            payload = '', ), 
+                            payload = 'string', ), 
                         simple_preview = fdtapi.models.action_simple_preview.ActionSimplePreview(
                             name = 'Ton Transfer', 
                             description = 'Transferring 5 Ton', 
-                            action_image = '', 
+                            action_image = 'string', 
                             value = '5 Ton', 
-                            value_image = '', 
+                            value_image = 'string', 
                             accounts = [
                                 
                                 ], ), )
@@ -215,8 +266,7 @@ From accounting with love.',
                                 is_scam = True, 
                                 icon = 'https://ton.org/logo.png', ), 
                             amount = 123456789, 
-                            comment = 'Hi! This is your salary. 
-From accounting with love.', 
+                            comment = 'Hi! This is your salary. From accounting with love.', 
                             encrypted_comment = fdtapi.models.encrypted_comment.EncryptedComment(
                                 encryption_type = 'simple', 
                                 cipher_text = 'A6A0BD6608672B...CE3AF8DB', ), 
@@ -230,8 +280,7 @@ From accounting with love.',
                             senders_wallet = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                             recipients_wallet = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                             amount = '1000000000', 
-                            comment = 'Hi! This is your salary. 
-From accounting with love.', 
+                            comment = 'Hi! This is your salary. From accounting with love.', 
                             jetton = fdtapi.models.jetton_preview.JettonPreview(
                                 address = '0:0BB5A9F69043EEBDDA5AD2E946EB953242BD8F603FE795D90698CEEC6BFC60A0', 
                                 name = 'Wrapped TON', 
@@ -241,19 +290,38 @@ From accounting with love.',
                                 verification = 'whitelist', ), ), 
                         nft_item_transfer = fdtapi.models.nft_item_transfer_action.NftItemTransferAction(
                             nft = '', 
-                            comment = 'Hi! This is your salary. 
-From accounting with love.', 
+                            comment = 'Hi! This is your salary. From accounting with love.', 
                             payload = '0234de3e21d21b3ee21f3', ), 
                         subscribe = fdtapi.models.subscription_action.SubscriptionAction(
-                            subscriber = , 
+                            subscriber = fdtapi.models.account_address.AccountAddress(
+                                address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                name = 'Ton foundation', 
+                                is_scam = True, 
+                                icon = 'https://ton.org/logo.png'
+                            ), 
                             subscription = '0:da6b1b6663a0e4d18cc8574ccd9db5296e367dd9324706f3bbd9eb1cd2caf0bf', 
-                            beneficiary = , 
+                            beneficiary = fdtapi.models.account_address.AccountAddress(
+                                address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                name = 'Ton foundation', 
+                                is_scam = True, 
+                                icon = 'https://ton.org/logo.png'
+                            ), 
                             amount = 1000000000, 
                             initial = False, ), 
                         un_subscribe = fdtapi.models.un_subscription_action.UnSubscriptionAction(
-                            subscriber = , 
+                            subscriber = fdtapi.models.account_address.AccountAddress(
+                                address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                name = 'Ton foundation', 
+                                is_scam = True, 
+                                icon = 'https://ton.org/logo.png'
+                            ), 
                             subscription = '0:da6b1b6663a0e4d18cc8574ccd9db5296e367dd9324706f3bbd9eb1cd2caf0bf', 
-                            beneficiary = , ), 
+                            beneficiary = fdtapi.models.account_address.AccountAddress(
+                                address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                name = 'Ton foundation', 
+                                is_scam = True, 
+                                icon = 'https://ton.org/logo.png'
+                            ), ), 
                         auction_bid = fdtapi.models.auction_bid_action.AuctionBidAction(
                             auction_type = 'DNS.ton', 
                             amount = fdtapi.models.price.Price(
@@ -262,8 +330,11 @@ From accounting with love.',
                             nft = fdtapi.models.nft_item.NftItem(
                                 address = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                                 index = 58, 
-                                owner = , 
-                                collection = fdtapi.models.nft_item_collection.NftItem_collection(
+                                owner = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                                collection = fdtapi.models.nft_item_collection.NftItemCollection(
                                     address = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                                     name = 'TON Diamonds', 
                                     description = 'Best collection in TON network', ), 
@@ -271,7 +342,10 @@ From accounting with love.',
                                 metadata = {}, 
                                 sale = fdtapi.models.sale.Sale(
                                     address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
-                                    market = , 
+                                    market = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                                     price = fdtapi.models.price.Price(
                                         value = '123000000000', 
                                         token_name = 'TON', ), ), 
@@ -284,11 +358,17 @@ From accounting with love.',
                                 approved_by = [
                                     'getgems'
                                     ], ), 
-                            bidder = , 
-                            auction = , ), 
+                            bidder = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            auction = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         nft_purchase = fdtapi.models.nft_purchase_action.NftPurchaseAction(
                             auction_type = 'DNS.tg', 
-                            amount = , 
+                            amount = fdtapi.models.Price(value='YourValueHere', token_name='YourTokenNameHere'), 
                             nft = fdtapi.models.nft_item.NftItem(
                                 address = '0:E93E7D444180608B8520C00DC664383A387356FB6E16FDDF99DBE5E1415A574B', 
                                 index = 58, 
@@ -298,20 +378,38 @@ From accounting with love.',
                                 approved_by = [
                                     'getgems'
                                     ], ), 
-                            seller = , 
-                            buyer = , ), 
+                            seller = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            buyer = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         deposit_stake = fdtapi.models.deposit_stake_action.DepositStakeAction(
                             amount = 1660050553, 
-                            staker = , ), 
+                            staker = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         recover_stake = fdtapi.models.recover_stake_action.RecoverStakeAction(
                             amount = 1660050553, 
-                            staker = , ), 
+                            staker = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), ), 
                         jetton_swap = fdtapi.models.jetton_swap_action.JettonSwapAction(
                             dex = 'stonfi', 
                             amount_in = '1660050553', 
                             amount_out = '1660050553', 
-                            user_wallet = , 
-                            router = , 
+                            user_wallet = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            router = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                             jetton_wallet_in = '0:dea8f638b789172ce36d10a20318125e52c649aa84893cd77858224fe2b9b0ee', 
                             jetton_master_in = fdtapi.models.jetton_preview.JettonPreview(
                                 address = '0:0BB5A9F69043EEBDDA5AD2E946EB953242BD8F603FE795D90698CEEC6BFC60A0', 
@@ -321,19 +419,31 @@ From accounting with love.',
                                 image = 'https://cache.tonapi.io/images/jetton.jpg', 
                                 verification = 'whitelist', ), 
                             jetton_wallet_out = '0:dea8f638b789172ce36d10a20318125e52c649aa84893cd77858224fe2b9b0ee', 
-                            jetton_master_out = , ), 
+                            jetton_master_out = fdtapi.models.jetton_preview.JettonPreview(
+                                address = '0:0BB5A9F69043EEBDDA5AD2E946EB953242BD8F603FE795D90698CEEC6BFC60A0', 
+                                name = 'Wrapped TON', 
+                                symbol = 'WTON', 
+                                decimals = 9, 
+                                image = 'https://cache.tonapi.io/images/jetton.jpg', 
+                                verification = 'whitelist', ), ), 
                         smart_contract_exec = fdtapi.models.smart_contract_action.SmartContractAction(
-                            executor = , 
-                            contract = , 
+                            executor = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
+                            contract = fdtapi.models.AccountAddress(address='0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
+                                        name='YourNameHere', 
+                                        is_scam=False, 
+                                        icon='YourIconURLHere'), 
                             ton_attached = 123456789, 
                             operation = 'NftTransfer or 0x35d95a12', 
-                            payload = '', ), 
+                            payload = 'string', ), 
                         simple_preview = fdtapi.models.action_simple_preview.ActionSimplePreview(
                             name = 'Ton Transfer', 
                             description = 'Transferring 5 Ton', 
-                            action_image = '', 
+                            action_image = 'string', 
                             value = '5 Ton', 
-                            value_image = '', 
+                            value_image = 'string', 
                             accounts = [
                                 
                                 ], ), )
@@ -343,12 +453,12 @@ From accounting with love.',
                 in_progress = False,
                 extra = 3,
         )
-        """
+        
 
     def testAccountEvent(self):
         """Test AccountEvent"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 if __name__ == '__main__':
     unittest.main()
