@@ -35,8 +35,8 @@ class TestAccountAddress(unittest.TestCase):
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AccountAddress`
-        """
-        model = fdtapi.models.account_address.AccountAddress()  # noqa: E501
+        
+        # model = fdtapi.models.account_address.AccountAddress()  # noqa: E501
         if include_optional :
             return AccountAddress(
                 address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365', 
@@ -49,12 +49,12 @@ class TestAccountAddress(unittest.TestCase):
                 address = '0:10C1073837B93FDAAD594284CE8B8EFF7B9CF25427440EB2FC682762E1471365',
                 is_scam = True,
         )
-        """
+        
 
     def testAccountAddress(self):
         """Test AccountAddress"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 if __name__ == '__main__':
     unittest.main()
